@@ -20,4 +20,6 @@ app.get('/', (req, res) => res.end('Wheel'))
 
 app.get('/admin/:operation?', pages.admin)
 
+app.get('/template/:operation?', pages.template)
+
 app.listen(serv.port, () => console.log(serv.msg))

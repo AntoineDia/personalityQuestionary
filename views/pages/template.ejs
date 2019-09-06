@@ -1,0 +1,1199 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+      /*! mailcheck v1.1.2 @licence MIT */var Mailcheck={domainThreshold:2,secondLevelThreshold:2,topLevelThreshold:2,defaultDomains:["msn.com","bellsouth.net","telus.net","comcast.net","optusnet.com.au","earthlink.net","qq.com","sky.com","icloud.com","mac.com","sympatico.ca","googlemail.com","att.net","xtra.co.nz","web.de","cox.net","gmail.com","ymail.com","aim.com","rogers.com","verizon.net","rocketmail.com","google.com","optonline.net","sbcglobal.net","aol.com","me.com","btinternet.com","charter.net","shaw.ca"],defaultSecondLevelDomains:["yahoo","hotmail","mail","live","outlook","gmx"],defaultTopLevelDomains:["com","com.au","com.tw","ca","co.nz","co.uk","de","fr","it","ru","net","org","edu","gov","jp","nl","kr","se","eu","ie","co.il","us","at","be","dk","hk","es","gr","ch","no","cz","in","net","net.au","info","biz","mil","co.jp","sg","hu","uk"],run:function(a){a.domains=a.domains||Mailcheck.defaultDomains,a.secondLevelDomains=a.secondLevelDomains||Mailcheck.defaultSecondLevelDomains,a.topLevelDomains=a.topLevelDomains||Mailcheck.defaultTopLevelDomains,a.distanceFunction=a.distanceFunction||Mailcheck.sift4Distance;var b=function(a){return a},c=a.suggested||b,d=a.empty||b,e=Mailcheck.suggest(Mailcheck.encodeEmail(a.email),a.domains,a.secondLevelDomains,a.topLevelDomains,a.distanceFunction);return e?c(e):d()},suggest:function(a,b,c,d,e){a=a.toLowerCase();var f=this.splitEmail(a);if(c&&d&&-1!==c.indexOf(f.secondLevelDomain)&&-1!==d.indexOf(f.topLevelDomain))return!1;var g=this.findClosestDomain(f.domain,b,e,this.domainThreshold);if(g)return g==f.domain?!1:{address:f.address,domain:g,full:f.address+"@"+g};var h=this.findClosestDomain(f.secondLevelDomain,c,e,this.secondLevelThreshold),i=this.findClosestDomain(f.topLevelDomain,d,e,this.topLevelThreshold);if(f.domain){g=f.domain;var j=!1;if(h&&h!=f.secondLevelDomain&&(g=g.replace(f.secondLevelDomain,h),j=!0),i&&i!=f.topLevelDomain&&""!==f.secondLevelDomain&&(g=g.replace(new RegExp(f.topLevelDomain+"$"),i),j=!0),j)return{address:f.address,domain:g,full:f.address+"@"+g}}return!1},findClosestDomain:function(a,b,c,d){d=d||this.topLevelThreshold;var e,f=1/0,g=null;if(!a||!b)return!1;c||(c=this.sift4Distance);for(var h=0;h<b.length;h++){if(a===b[h])return a;e=c(a,b[h]),f>e&&(f=e,g=b[h])}return d>=f&&null!==g?g:!1},sift4Distance:function(a,b,c){if(void 0===c&&(c=5),!a||!a.length)return b?b.length:0;if(!b||!b.length)return a.length;for(var d=a.length,e=b.length,f=0,g=0,h=0,i=0,j=0,k=[];d>f&&e>g;){if(a.charAt(f)==b.charAt(g)){i++;for(var l=!1,m=0;m<k.length;){var n=k[m];if(f<=n.c1||g<=n.c2){l=Math.abs(g-f)>=Math.abs(n.c2-n.c1),l?j++:n.trans||(n.trans=!0,j++);break}f>n.c2&&g>n.c1?k.splice(m,1):m++}k.push({c1:f,c2:g,trans:l})}else{h+=i,i=0,f!=g&&(f=g=Math.min(f,g));for(var o=0;c>o&&(d>f+o||e>g+o);o++){if(d>f+o&&a.charAt(f+o)==b.charAt(g)){f+=o-1,g--;break}if(e>g+o&&a.charAt(f)==b.charAt(g+o)){f--,g+=o-1;break}}}f++,g++,(f>=d||g>=e)&&(h+=i,i=0,f=g=Math.min(f,g))}return h+=i,Math.round(Math.max(d,e)-h+j)},splitEmail:function(a){a=null!==a?a.replace(/^\s*/,"").replace(/\s*$/,""):null;var b=a.split("@");if(b.length<2)return!1;for(var c=0;c<b.length;c++)if(""===b[c])return!1;var d=b.pop(),e=d.split("."),f="",g="";if(0===e.length)return!1;if(1==e.length)g=e[0];else{f=e[0];for(var h=1;h<e.length;h++)g+=e[h]+".";g=g.substring(0,g.length-1)}return{topLevelDomain:g,secondLevelDomain:f,domain:d,address:b.join("@")}},encodeEmail:function(a){var b=encodeURI(a);return b=b.replace("%20"," ").replace("%25","%").replace("%5E","^").replace("%60","`").replace("%7B","{").replace("%7C","|").replace("%7D","}")}};"undefined"!=typeof module&&module.exports&&(module.exports=Mailcheck),"function"==typeof define&&define.amd&&define("mailcheck",[],function(){return Mailcheck}),"undefined"!=typeof window&&window.jQuery&&!function(a){a.fn.mailcheck=function(a){var b=this;if(a.suggested){var c=a.suggested;a.suggested=function(a){c(b,a)}}if(a.empty){var d=a.empty;a.empty=function(){d.call(null,b)}}a.email=this.val(),Mailcheck.run(a)}}(jQuery);
+    </script>
+    <style>
+        @font-face {
+          font-family: 'Act';
+          src: url('https://luckycyclefiles.s3.amazonaws.com/clients/yves-rocher/fonts/actbeautiful/ActBeautiful01-Regular.eot');
+          src: url('https://luckycyclefiles.s3.amazonaws.com/clients/yves-rocher/fonts/actbeautiful/ActBeautiful01-Regular.eot?#iefix') format('embedded-opentype'),
+          url('https://luckycyclefiles.s3.amazonaws.com/clients/yves-rocher/fonts/actbeautiful/ActBeautiful01-Regular.woff2') format('woff2'),
+          url('https://luckycyclefiles.s3.amazonaws.com/clients/yves-rocher/fonts/actbeautiful/ActBeautiful01-Regular.woff') format('woff'),
+          url('https://luckycyclefiles.s3.amazonaws.com/clients/yves-rocher/fonts/actbeautiful/ActBeautiful01-Regular.ttf') format('truetype'),
+          url('https://luckycyclefiles.s3.amazonaws.com/clients/yves-rocher/fonts/actbeautiful/ActBeautiful01-Regular.svg#ActBeautiful01-Regular') format('svg');
+          font-weight: normal;
+          font-style: normal;
+        }
+
+        @font-face {
+          font-family: 'WomensVoice';
+          src: url('https://files.luckycycle.com/clients/yves-rocher/fonts/womensvoice/YRWomensVoice-Regular.eot');
+          src: url('https://files.luckycycle.com/clients/yves-rocher/fonts/womensvoice/YRWomensVoice-Regular.eot?#iefix') format('embedded-opentype'),
+          url('https://files.luckycycle.com/clients/yves-rocher/fonts/womensvoice/YRWomensVoice-Regular.woff2') format('woff2'),
+          url('https://files.luckycycle.com/clients/yves-rocher/fonts/womensvoice/YRWomensVoice-Regular.woff') format('woff'),
+          url('https://files.luckycycle.com/clients/yves-rocher/fonts/womensvoice/YRWomensVoice-Regular.ttf') format('truetype'),
+          url('https://files.luckycycle.com/clients/yves-rocher/fonts/womensvoice/YRWomensVoice-Regular.svg#ActBeautiful01-Regular') format('svg');
+          font-weight: normal;
+          font-style: normal;
+        }
+
+        @font-face {
+          font-family: 'Martin';
+          src: url('https://luckycyclefiles.s3.amazonaws.com/clients/yves-rocher/fonts/MartinGotURWTOT-Lig.eot');
+          src: url('https://luckycyclefiles.s3.amazonaws.com/clients/yves-rocher/fonts/MartinGotURWTOT-Lig.eot?#iefix') format('embedded-opentype'),
+          url('https://luckycyclefiles.s3.amazonaws.com/clients/yves-rocher/fonts/MartinGotURWTOT-Lig.woff2') format('woff2'),
+          url('https://luckycyclefiles.s3.amazonaws.com/clients/yves-rocher/fonts/MartinGotURWTOT-Lig.woff') format('woff'),
+          url('https://luckycyclefiles.s3.amazonaws.com/clients/yves-rocher/fonts/MartinGotURWTOT-Lig.ttf') format('truetype'),
+          url('https://luckycyclefiles.s3.amazonaws.com/clients/yves-rocher/fonts/MartinGotURWTOT-Lig.svg#MartinGotURWTOT-Lig') format('svg');
+          font-weight: 300;
+          font-style: normal;
+        }
+
+        @font-face {
+          font-family: 'MartinB';
+          src: url('https://luckycyclefiles.s3.amazonaws.com/clients/yves-rocher/fonts/MartinGotURWTOT-Bol.eot');
+          src: url('https://luckycyclefiles.s3.amazonaws.com/clients/yves-rocher/fonts/MartinGotURWTOT-Bol.eot?#iefix') format('embedded-opentype'),
+          url('https://luckycyclefiles.s3.amazonaws.com/clients/yves-rocher/fonts/MartinGotURWTOT-Bol.woff2') format('woff2'),
+          url('https://luckycyclefiles.s3.amazonaws.com/clients/yves-rocher/fonts/MartinGotURWTOT-Bol.woff') format('woff'),
+          url('https://luckycyclefiles.s3.amazonaws.com/clients/yves-rocher/fonts/MartinGotURWTOT-Bol.ttf') format('truetype'),
+          url('https://luckycyclefiles.s3.amazonaws.com/clients/yves-rocher/fonts/MartinGotURWTOT-Bol.svg#MartinGotURWTOT-Bol') format('svg');
+          font-weight: bold;
+          font-style: normal;
+        }
+
+        body{
+          margin: 0px; padding: 0px;
+          font-family: sans-serif;
+          overflow: hidden;
+        }
+
+        *{
+            font-display: swap;
+        }
+        #app{
+          width: 100%; height: 100%;
+          max-width: 900px; max-height: 600px;
+          position: absolute;
+          top: 50%; left: 50%;
+          transform: translateX(-50%) translateY(-50%);
+          background-color: #fbefe0;
+          overflow: hidden;
+        }
+
+        .bg{
+          position: absolute; top: 0px; right: 0px; left: 225px; bottom: 0px;
+          background-image: url(<%- config.assets[query.lang] && config.assets[query.lang].background ? config.assets[query.lang].background : config.assets.background %>);
+          background-size: cover;
+        }
+
+        .lady{
+          position: absolute;
+          top: 0px; left: 0px; bottom: 0px;
+          width: 225px;
+          background-image: url(<%- config.assets[query.lang] && config.assets[query.lang].left ? config.assets[query.lang].left : config.assets.left %>);
+          background-size: cover;
+        }
+        .lady div{
+          position: absolute; bottom: 2px; left: 0px; right: 0px;
+          text-align: center;
+          font-size: 18px; color: white;
+          text-shadow: 0px 0px 10px rgba(0, 0, 0, 1), 0px 0px 10px rgba(0, 0, 0, 1), 0px 0px 10px rgba(0, 0, 0, 1), 0px 0px 10px rgba(0, 0, 0, 1);
+          font-family: 'MartinB';
+        }
+
+
+        .logo{
+          background-image: url(<%- config.assets[query.lang] && config.assets[query.lang].logo ? config.assets[query.lang].logo : config.assets.logo %>);
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+          position: absolute; top: 10px; left: 230px;
+          width: 400px; height: 100px;
+          transition: all .3s;
+          opacity: 1;
+        }
+
+        .game .logo{
+          /*transform: translateY(-0%) scale(.3);*/
+          transform: translateY(-20%) translateX(-25%) scale(.6);
+          opacity: 1;
+        }
+
+
+
+        /*.stamp{
+          background-image: url(https://a.luckycycle.com/uploads/img/img/15197/rond_fr.png);
+          width: 150px;
+          height: 132px;
+          background-size: cover;
+          position: absolute;
+          bottom: 50px;
+          left: 70px;
+          transform: rotateZ(-15deg);
+        }
+
+        .stamp.dutch{
+          background-image: url(https://a.luckycycle.com/uploads/img/img/15198/rond_nl.png);
+        }*/
+
+
+
+        .content{
+          position: absolute;
+          top: 110px; left: 230px; bottom: 10px;
+          width: 400px;
+          text-align: center;
+          color: #272825;
+        }
+
+        .content {
+          opacity: 1;
+          transition: all 1s;
+        }
+
+        .game .content {
+          opacity: 0;
+          transform: translateY(100%);
+        }
+
+        .subtitle{
+          text-align: center;
+          font-size: 13px;
+          /*font-size: 16px;*/
+          color: #272825;
+        }
+
+        .content form{
+          margin-top: 10px;
+        }
+
+        .form-row{
+          display: inline-block;
+          text-align: left;
+          width: 355px;
+          position: relative;
+          margin-bottom: 5px;
+        }
+
+        .form-row label{
+          display: block;
+          font-family: 'WomensVoice';
+          font-size: 22px;
+          margin-bottom: -5px;
+        }
+
+        .form-row input{
+          width: 100%;
+          margin-top: 3px;
+          height: 22px; line-height: 22px;
+          border: 2px solid #ece2ce;
+        }
+
+        .form-row.error input{
+          border: 2px solid #ad2121;
+        }
+
+        .form-row.error select{
+          border: 2px solid #f76255;
+        }
+
+        .form-row.checkbox label,
+        .form-row .radio-wrapper label{
+          display: inline-block;
+          font-family: 'Martin';
+          min-width: 100px;
+          font-size: 16px;
+        }
+
+        .form-row a{
+          color: #272825;
+        }
+
+        .form-row.checkbox input,
+        .form-row .radio-wrapper input{
+          width: 20px; height: 20px;
+          transform: translateY(3px);
+        }
+
+        .form-row select {
+            margin-top: 3px;
+            height: 30px;
+            line-height: 30px;
+            border: 2px solid #ece2ce;
+            background: white;
+        }
+
+        .form-row.checkbox label{
+          /*margin-left: 25px;*/
+          transform: translateX(25px);
+          font-size: 13px;
+        }
+
+        .form-row.checkbox input{
+          position: absolute; left: 0px;
+          margin-top: -4px;
+        }
+
+        .error .form-row.checkbox input{
+          margin-top: -30px;
+        }
+
+        .form-row.submit{
+          text-align: center;
+          display: block;
+          width: 140px; height: 40px;
+          margin: 0 auto;
+          position: relative;
+          margin-top: 10px;
+        }
+
+        .subtext{
+          font-size: 12px;
+          font-family: 'Martin';
+          transform: translateY(-3px);
+        }
+
+        .form-row.submit input{
+          background-color: #969f23;
+          height: 35px; width: 110px;
+          display: inline-block;
+          color: white;
+          font-size: 18px;
+          border: 0px;
+          cursor: pointer;
+          padding: 0px 20px 0px 10px;
+          -webkit-appearance:none;
+          -webkit-border-radius:0;
+
+        }
+
+        .form-row.submit .submit-triangle{
+          color: white; font-size: 22px;
+          position: absolute;
+          top: 0px; right: 25px;
+          line-height: 50px; height: 46px;
+        }
+
+        .form-optout{
+          margin-top: 10px;
+          font-size: 12px;
+          line-height: 10px;
+          padding: 0px 10px;
+        }
+
+        .form-optout span{
+          text-decoration: underline;
+          cursor: pointer;
+        }
+
+        .form-optout a{
+          color: #272825;
+        }
+
+        .products{
+          width: 230px; height: 230px;
+          position: absolute;
+          background-image: url(<%- config.assets[query.lang] && config.assets[query.lang].product ? config.assets[query.lang].product : config.assets.product %>);
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: center;
+          bottom: 25px; right: 65px;
+          opacity: 1;
+          transition: all 1s;
+        }
+
+        .game .products{
+          /*transform: translateX(10%);*/
+          transform: translateX(40%) translateY(10%) scale(.8);
+          opacity: 1;
+        }
+
+        .thanks{
+          margin-top: 50px;
+        }
+
+        .thanks .congrats{
+          font-family: 'MartinB';
+          font-size: 28px;
+          text-transform: uppercase;
+        }
+        .thanks .youwin{
+          color: #272825;
+          font-size: 22px;
+        }
+        .thanks .rewardname{
+          font-family: 'WomensVoice';
+          font-size: 34px;
+          margin: 10px;
+        }
+        .thanks .youwinexp{
+          color: #272825;
+          font-size: 16px;
+        }
+        .thanks .yourcode{
+          color: #272825;
+          font-size: 16px;
+          position: relative;
+          margin-top: 20px;
+          padding-top: 10px;
+          text-transform: uppercase;
+        }
+
+        .thanks .yourcode:before{
+          content: '';
+          display:block;
+          height: 2px; background: #272825;
+          width: 100px;
+          position: absolute; top: 0px; left: 50%;
+          transform: translateX(-50%);
+        }
+        .thanks .coupon input{
+          height: 50px; width: 300px;
+          border: 0px;
+          border-radius: 10px;
+          font-size: 20px;
+          text-align: center;
+          color: #272825;
+          font-family: 'MartinB';
+          margin: 10px 0px;
+          padding-top: 7px;
+        }
+        .thanks .validity{
+          color: #272825;
+          font-size: 16px;
+          position: relative;
+          padding-bottom: 10px;
+        }
+        .thanks .validity:after{
+          content: '';
+          display:block;
+          height: 2px; background: #272825;
+          width: 100px;
+          position: absolute; bottom: 0px; left: 50%;
+          transform: translateX(-50%);
+        }
+
+        .dutch .checkbox input{
+          margin-top: -30px;
+        }
+        .dutch form{
+          margin-top: 0px;
+        }
+
+        .bottom-text{
+          position: absolute; bottom: 0px; right: 0px; left: 220px;
+          text-align: center;
+          font-size: 13px;
+          color: #272825;
+          font-weight: bold;
+          font-family: 'MartinB';
+          /*padding-bottom: 6px;*/
+        }
+
+        .game .wheel-wrapper{
+          transform: translateX(-60%) translateY(0px) rotateZ(0deg);
+        }
+
+        .wheel-wrapper{
+          width: 520px; height: 520px;
+          position: absolute;
+          right: -220px; top: 35px;
+          transition: all 1s;
+          transform: rotateZ(-35deg);
+        }
+
+        .wheel-wrapper.thanks{
+          transform: rotateZ(-35deg);
+        }
+
+        .play-btn{
+          width: 150px;
+          height: 150px;
+          border-radius: 50%;
+          background-color: #969f23;
+          color: white;
+          /*font-size: 50px;*/
+          font-size: 36px;
+          font-family: 'WomensVoice';
+          opacity: 0;
+          display: none;
+          position: absolute;
+          transition: all .3s;
+          top: 50%;
+          left: 50%;
+          transform: translateX(-50%) translateY(-50%);
+          text-align: center;
+          line-height: 150px;
+          cursor: pointer;
+        }
+
+        .play-btn .play-logo{
+          font-size: 24px;
+        }
+
+        .play-btn.show{
+          opacity: 1;
+          display: block;
+        }
+
+        .arrow{
+          position: absolute;
+          top: 0px; left: 50%;
+          width: 60px; height: 60px;
+          transform: translateX(-50%) translateY(-35%);
+          background-image: url(<%- config.assets[query.lang] && config.assets[query.lang].pin ? config.assets[query.lang].pin : config.assets.pin %>);
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+
+        .wheel{
+          width: 520px; height: 520px;
+          border-radius: 50%;
+          background-color: white;
+          background-image: url(<%- config.assets[query.lang] && config.assets[query.lang].wheel ? config.assets[query.lang].wheel : config.assets.wheel %>);
+          background-size: 96%;
+          background-position: center;
+          background-repeat: no-repeat;
+          transform: rotateZ(312deg);
+        }
+
+        .wheel.ready{
+          transform: rotateZ(116deg);
+          transition: none;
+        }
+
+        .wheel.constant-rotation{
+          -webkit-animation-name: spin;
+          -webkit-animation-duration: 20000ms;
+          -webkit-animation-iteration-count: infinite;
+          -webkit-animation-timing-function: linear;
+          -moz-animation-name: spin;
+          -moz-animation-duration: 20000ms;
+          -moz-animation-iteration-count: infinite;
+          -moz-animation-timing-function: linear;
+          -ms-animation-name: spin;
+          -ms-animation-duration: 20000ms;
+          -ms-animation-iteration-count: infinite;
+          -ms-animation-timing-function: linear;
+
+          animation-name: spin;
+          animation-duration: 20000ms;
+          animation-iteration-count: infinite;
+          animation-timing-function: linear;
+        }
+
+        .cannotplay{
+          font-size: 18px;
+          color: white;
+          margin-top: 80px;
+        }
+
+
+/* REWARDS */
+        <%
+        var rewards = config.reward_ids && config.reward_ids[query.lang] ? config.reward_ids[query.lang] : config.rewards
+
+        rewards.forEach( (item, index) => {
+            let base = 360 * 5
+            let piece = (360 / rewards.length)
+            console.log(rewards, piece)
+            let deg =  (piece * index ) + (piece/2)
+        %>
+        .wheel.reward-<%= index+1 %>{ transform: rotateZ(-<%= (base+deg) %>deg); transition: all 5s;} /* free delivery 270 */
+        <% }) %>
+
+
+
+        /* 42 => try again */
+
+
+
+
+
+
+        @-ms-keyframes spin {
+          from { -ms-transform: rotate(0deg); }
+          to { -ms-transform: rotate(360deg); }
+        }
+        @-moz-keyframes spin {
+          from { -moz-transform: rotate(0deg); }
+          to { -moz-transform: rotate(360deg); }
+        }
+        @-webkit-keyframes spin {
+          from { -webkit-transform: rotate(0deg); }
+          to { -webkit-transform: rotate(360deg); }
+        }
+        @keyframes spin {
+          from {
+            transform:rotate(0deg);
+          }
+          to {
+            transform:rotate(360deg);
+          }
+        }
+
+
+        @media only screen and (max-width: 601px) {
+
+          #app{
+            max-width: 100%;
+            max-height: 100%;
+          }
+
+          .bg{
+            left: 0px;
+          }
+
+          .game .logo,
+          .logo{
+            left: 50% !important;
+            transform: translateX(-50%);
+          }
+
+          .content{
+            top: 150px;
+            left: 50% !important;
+            transform: translateX(-50%);
+          }
+
+          .stamp{
+            top: 20px;
+            left: 57px;
+            bottom: inherit;
+          }
+
+          .subtitle{
+            font-size: 28px;
+          }
+
+          .subtext{
+            font-size: 14px;
+          }
+
+          /*.wheel-wrapper{
+            top: 200px;
+            z-index: 0;
+            transform: rotate(0deg) scale(.7);
+          }*/
+
+          .wheel-wrapper{
+            right: inherit;
+            top: inherit;
+            left: 50%;
+            transform: translateX(-50%) translateY(55%) scale(1.2) rotate(-36deg);
+          }
+
+          .game .wheel-wrapper{
+            transform: translateX(-50%) translateY(-35%) scale(1);
+          }
+
+          .wheel-wrapper.thanks{
+            transform: translateX(-50%) translateY(55%) scale(1.2);
+          }
+
+          .form-row{
+            width: 400px;
+          }
+
+          .form-row label{
+            font-size: 30px;
+          }
+
+          .form-row input{
+            height: 30px; line-height: 30px;
+            font-size: 22px;
+          }
+
+          .form-row.checkbox label{
+            margin-left:8px;
+          }
+
+          .bottom-text{
+            left: 0px;
+          }
+
+          .content{
+            top: 170px;
+            left: 50px;
+            width: 500px;
+            z-index: 99;
+          }
+
+          .products,
+          .lady{
+            display: none;
+          }
+
+          .thanks{
+            padding: 0px 30px;
+          }
+
+          .thanks .congrats{
+            font-size: 35px;
+          }
+
+          .thanks .rewardname{
+            font-size: 44px;
+          }
+
+          .thanks .youwinexp,
+          .thanks .yourcode,
+          .thanks .validity{
+            font-size: 20px;
+          }
+
+          .form-optout{
+            font-size: 16px;
+          }
+
+          .form-optout{
+            line-height: inherit;
+            margin: 10px 20px;
+          }
+        }
+
+        .suggestion-email {
+          text-align: right;
+          padding-right: 20px;
+          font-size: 12px;
+        }
+
+        .suggestion-email b{
+           cursor: pointer;
+           font-weight: bold;
+        }
+
+        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+          /* IE10+ CSS styles go here */
+          .form-row.checkbox input{
+            margin-top: inherit;
+          }
+        }
+
+
+        @-moz-document url-prefix() {
+            .form-row.checkbox input{
+              margin-top: inherit;
+
+              .content form{
+                margin-top: 0px;
+              }
+
+              .form-optout{
+                margin-top: 0px;
+              }
+            }
+        }
+
+        .checkbox.error span,
+        .checkbox.error span a{
+          color: #ad2121!important;
+          font-family: 'MartinB';
+        }
+
+        span.error-field {
+            color: #ad2121;
+            font-family: 'MartinB';
+            font-size: 12px;
+            margin-left: 7px;
+        }
+
+
+        .pulse {
+          animation: pulse 2s infinite;
+        }
+        @-webkit-keyframes pulse {
+          0% { -webkit-box-shadow: 0 0 0 0 rgba(255, 120, 0, .8); }
+          70% { -webkit-box-shadow: 0 0 0 7px rgba(255, 120, 0, 0); }
+          100% { -webkit-box-shadow: 0 0 0 0 rgba(255, 120, 0, 0); }
+        }
+        @keyframes pulse {
+          0% {
+            -moz-box-shadow: 0 0 0 0 rgba(255, 120, 0, .8);
+            box-shadow: 0 0 0 0 rgba(255, 120, 0, .8);
+          }
+          70% {
+            -moz-box-shadow: 0 0 0 7px rgba(255, 120, 0, 0);
+            box-shadow: 0 0 0 7px rgba(255, 120, 0, 0);
+          }
+          100% {
+            -moz-box-shadow: 0 0 0 0 rgba(255, 120, 0, 0);
+            box-shadow: 0 0 0 0 rgba(255, 120, 0, 0);
+          }
+        }
+
+
+    </style>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/minifill/0.0.4/minifill.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+
+    <style><%- config.css %></style>
+  </head>
+  <body>
+
+
+
+
+    <script>
+/*CONFIG LUCKY*/
+        window.LUCKY_CONFIG =  <%- config %> || {}
+    </script>
+
+    <script>
+        window.LUCKY = {
+          hash: '<%= hash %>',
+          operation: '<%= config.operation %>'
+        }
+
+        window.LUCKY_HOOKS = {
+        }
+
+        var query = <%- JSON.stringify(query) %>
+
+
+        var existing_reward = query.reward //''//'{{REWARD}}'
+        var existing_reward_id = query.reward_id//'{{REWARDID}}'
+        var existing_coupon = query.coupon//{{COUPON}}'
+
+    </script>
+    <div id="app" :class="{ game: status === 'game' }">
+      <div class="bg"></div>
+      <div class="lady">
+        <div>{{txt.date}}</div>
+      </div>
+      <div class="stamp"></div>
+
+
+      <div class="logo"></div>
+
+      <div class="content">
+
+        <div v-if="status !== 'thanks' && status !== 'cannotplay' " class="subtitle" v-html="txt.subtitle"></div>
+
+        <form v-if="status !== 'thanks' && status !== 'cannotplay' "  @submit="submitForm">
+
+          <div class="form-row" :class="{ error: hasError(i), checkbox: i.type==='checkbox' }" v-if="!i.hidden" :key="i.name" v-for="i in inputs">
+            <label :for="i.name"><span v-html="i.label"></span>
+              <span v-if="hasError(i) && i.type !== 'checkbox'" class="error-field subtext">{{i.error || txt.requis}}</span>
+              <div v-if="i.subtext" class="subtext">{{i.subtext}}</div>
+            </label>
+
+            <input :id="i.name" :type="i.type" v-model="i.value" @keyUp="format" :placeholder="i.placeholder||''" v-if="i.type !== 'radio' && i.type !== 'select' && i.type !== 'email' " />
+
+            <span v-if="i.type==='radio'">
+              <span class="radio-wrapper" :key="r" v-for="r in i.values.split('|')">
+                <input type="radio" :value="r" :name="i.name" :id="i.name+'-'+r" @change="radioChange" /> <label :for="i.name+'-'+r"><span v-html="r"></span></label>
+              </span>
+            </span>
+
+            <span v-if="i.type === 'select'">
+              <select v-model="i.value">
+                <option disabled value="">---</option>
+                <option :key="r" v-for="r in i.values.split('|')" :value="r">{{r}}</option>
+              </select>
+            </span>
+
+            <input :id="i.name" :type="i.type" v-model="i.value" @keyUp="format" :placeholder="i.placeholder||''" v-if="i.type == 'email' " v-on:keyup="checkEmailSuggestion"/>
+            <div class="suggestion-email" v-if="i.type == 'email' && suggestion_email">{{i.suggestion}} <b @click="chooseSuggestion">{{ suggestion_email }}</b></div>
+
+          </div>
+          <div class="form-row submit">
+            <input type="submit" :value="txt.submit" /> <span class="submit-triangle">▸</span>
+          </div>
+          <div class="form-optout">
+            <div>{{txt.optoutText}}</div>
+            <div>{{txt.optoutText2}} <span @click="optout">{{txt.optoutLink}}</span></div>
+          </div>
+        </form>
+
+        <div class="cannotplay" v-if="status === 'cannotplay'" v-html="txt.cannotPlay"></div>
+
+        <div class="thanks" v-if="status === 'thanks'" >
+
+          <div v-if="txt.congrats" class="congrats" v-html="txt.congrats"></div>
+          <div v-if="txt.youWin" class="youwin" v-html="txt.youWin"></div>
+          <div v-if="rewardName" class="rewardname" v-html="rewardName"></div>
+          <div v-if="txt.youWin2" class="youwin" v-html="txt.youWin2"></div>
+          <div v-if="txt.youWinExp" class="youwinexp" v-html="txt.youWinExp"></div>
+          <div v-if="txt.yourCode" class="yourcode" v-html="txt.yourCode"></div>
+          <div v-if="coupon" class="coupon"><input type="text" id="coupon" :value="coupon" /></div>
+          <div v-if="txt.validity" class="validity">
+              <div id="validity1" v-html="txt.validity"></div>
+              <div id="validity2" v-html="txt.validity2"></div>
+          </div>
+
+        </div>
+
+
+
+      </div>
+
+      <div class="wheel-wrapper" :class="{ thanks: status === 'thanks' }">
+        <div class="wheel" :class="wheelClass"></div>
+        <div class="arrow"></div>
+
+        <div @click="spin" class="play-btn pulse" :class="{ show: status === 'game' && !run }"><span class="play-logo">►</span>{{txt.btnPlay}}</div>
+      </div>
+
+
+      <div class="products"></div>
+
+      <div class="bottom-text">
+        <span v-if="status !=='thanks'">{{txt.bottomText}}</span>
+        <br v-if="status !=='thanks'">
+        <span v-if="status !=='thanks'">{{txt.bottomTextExtra}}</span>
+
+        <span v-if="status ==='thanks'">{{txt.bottomText2}}</span>
+      </div>
+
+    </div>
+
+<script>
+    polyfill();
+    var TOTAL_SPIN_TIME = 6000;
+    var START_SPIN_TIME = 7000;
+
+    var textes = <%- JSON.stringify(config.langs) %>
+    var form = <%- JSON.stringify(config.form) %>
+
+
+    var search = window.location.search.split('?').join('').split('&')
+    var countrySearch = search.filter(function(s){ return !!~s.indexOf('country')})[0]
+    var country = query.country || countrySearch ? countrySearch.split('=')[1] : 'be';
+
+    var langSearch = search.filter(function(s){ return !!~s.indexOf('lang')})[0]
+    var lang = query.lang || langSearch ? langSearch.split('=')[1] : 'fr';
+
+    var validation = {
+      notfalse : function(value){
+        return !!value
+      },
+      notempty : function(value){
+        if(value && value.length) return true;
+        return false;
+      },
+      email : function(value){
+        if(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/.test(value)) return true;
+        return false;
+      },
+      name : function(value){
+        if(!value) return false;
+        if(/\d/.test(value)) return false;
+        return true
+      },
+      date : function(value){
+        console.log('value: ', value, typeof value)
+        if(!value) return false;
+
+        var vs = (''+value).trim().split('-')
+        if(vs.length == 3 && vs[0].length == 4){
+
+          value = vs.reverse().join('-')
+
+        }
+
+        var cleaned = value
+          .split('/').join('')
+          .split('-').join('')
+          .split('.').join('')
+          .split(' ').join('')
+          .split('_').join('').slice(0,8);
+
+
+        var day = cleaned.slice(0,2)
+        var month = cleaned.slice(2,4)
+        var year = cleaned.slice(4, 8);
+
+        if(! (parseInt(day) < 32 && parseInt(day) > 0 ) ){
+          return false;
+        }
+        if(! (parseInt(month) < 13 && parseInt(month) > 0 ) ){
+          return false;
+        }
+
+        var nowY = (new Date()).getFullYear()
+        var minAge = 18;
+        var maxAge = 90;
+
+        if(! (parseInt(year) < (nowY-minAge) && parseInt(year) > (nowY-maxAge) ) ){
+          return false;
+        }
+
+        return true
+      }
+    }
+
+    var format = {
+      date : function(value){
+        if(value.length){
+          var cleaned = value
+            .split('/').join('')
+            .split('-').join('')
+            .split('.').join('')
+            .split(' ').join('')
+            .split('_').join('').slice(0,8);
+
+          var end = []
+          cleaned.split('').forEach(function(letter, i){
+            end.push(letter);
+            if(i == 1|| i == 3) end.push('/');
+          })
+
+          return end.join('');
+        }
+      }
+    }
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+          txt : textes[lang],
+          lang: lang,
+          status: existing_reward ? 'thanks' : 'formulaire',
+          reward: existing_reward_id,
+          rewardName : existing_reward ? existing_reward : '',
+          coupon: existing_coupon,
+          response: {},
+          run: existing_reward_id ? true: false,
+          inputs: form[lang],
+          errors : {},
+          suggestion_email: null
+        },
+        computed : {
+          cleaned : function(){
+            return this.inputs.reduce(function(tot, input){
+              tot[input.name] = input.value;
+              return tot;
+            }, {})
+          },
+
+          wheelClass : function(state){
+            var none = '';
+            var newClass = {
+              'ready' : state.status === 'game' && !status.run,
+              'constant-rotation' : state.status === 'formulaire',
+
+              <%
+              var rewards = config.reward_ids && config.reward_ids[query.lang] ? config.reward_ids[query.lang] : config.rewards
+              rewards.forEach( (reward, index) => {
+                if( !!~reward.indexOf('|') ){
+
+                let s = reward.split('|')
+              %>
+                  'reward-<%= index+1 %>' : state.run && (state.reward == <%= s[0] %> || state.reward == <%= s[1] %>),
+              <%}else{%>
+                  'reward-<%= index+1 %>' : state.run && state.reward == <%= reward %>,
+              <% }
+              }) %>
+            }
+
+            var hasOneTrue = Object.keys(newClass).reduce(function(tot, key){
+              if(newClass[key]) tot = true
+              return tot
+            }, false)
+
+            if(!hasOneTrue){
+              newClass['constant-rotation'] = true;
+            }
+
+            return newClass;
+          }
+        },
+        methods: {
+          chooseSuggestion: function(){
+            this.inputs = this.inputs.map(function(input){
+              if(input.type == 'email') input.value = this.suggestion_email
+
+              return input;
+            }.bind(this))
+            this.suggestion_email = null;
+          },
+          checkEmailSuggestion: function(){
+
+            const email = this.inputs.filter(function(input) {
+              if(input.type == 'email') return true;
+              return false
+            }).map(function(input){ return input.value })[0]
+
+
+            console.log('check email suggestion', email)
+            if(email){
+              Mailcheck.run({
+                email: email,
+                suggested: function(suggestion) {
+                  this.suggestion_email = suggestion.full
+                }.bind(this),
+                empty: function() {
+                  this.suggestion_email = null
+                }.bind(this)
+              });
+            }
+
+          },
+
+          optout : function(event){
+            this.submitForm(event, true);
+          },
+
+          getErrors : function(){
+            this.errors = this.inputs.reduce(function(tot, input) {
+              tot[input.name] = false;
+              var validFn = validation[input.validation];
+              if(validFn) tot[input.name] = !validFn(input.value);
+              return tot;
+            }, {});
+          },
+
+          format : function(event){
+            var id = event.target.id;
+            var input = this.inputs.find(function(input){
+              return input.name === id;
+            })
+            if(input.format) input.value = input.format(input.value);
+          },
+          hasError : function(input){
+            return this.errors[input.name]
+          },
+          radioChange: function(event){
+            var value = event.target.value;
+            var name = event.target.name;
+            var input = this.inputs.find(function(input){
+              return input.name === name;
+            });
+            input.value = value;
+          },
+
+          submitForm: function(event, optout){
+            event.preventDefault();
+            this.getErrors();
+
+            var numberOfError = this.inputs.map(function(input){
+              return this.errors[input.name]
+            }.bind(this)).filter(function(err){return err; }).length;
+
+            if(numberOfError) return ;
+
+            var data = this.cleaned
+            if(optout) data.newsletters = false;
+            else data.newsletters = true;
+
+
+            if(this.submited) return console.log('already submited');
+
+            if(window.LUCKY_HOOKS.beforeEdit && typeof window.LUCKY_HOOKS.beforeEdit == 'function') window.LUCKY_HOOKS.beforeEdit()
+
+            this.submited = true;
+            this.$http.put('/api/'+LUCKY.operation+'/edit/'+window.LUCKY.hash, data)
+              .then(function(response){
+                this.submited = false;
+                this.status = 'game';
+                /*if(response.body.edited.){
+                  this.status = 'cannotplay';
+                  return;
+                }*/
+
+                console.log(response, 'response')
+                this.response = response.body.played;
+
+                if(this.response.result_text == 'cannot_play'){
+                  this.status = 'cannotplay';
+                  if(window.LUCKY_HOOKS.cannotPlay && typeof window.LUCKY_HOOKS.cannotPlay == 'function') (window.LUCKY_HOOKS.cannotPlay.bind(this))()
+                  return;
+                }
+
+                this.reward = this.response.reward_id;
+
+                this.rewardName = this.response.reward_name;
+                this.coupon = this.response.coupon || this.response.reward_code;
+
+                if(window.LUCKY_HOOKS.onResult && typeof window.LUCKY_HOOKS.onResult == 'function') (window.LUCKY_HOOKS.onResult.bind(this))(response.body)
+
+                setTimeout(function(){
+                  this.spin();
+                }.bind(this), START_SPIN_TIME);
+              }.bind(this))
+              .catch(function(e){
+                console.log(e, 'cannot play')
+                this.status = 'cannotplay';
+                if(window.LUCKY_HOOKS.cannotPlay && typeof window.LUCKY_HOOKS.cannotPlay == 'function') (window.LUCKY_HOOKS.cannotPlay.bind(this))()
+                /*setTimeout(function(){
+                  this.spin();
+                }.bind(this), START_SPIN_TIME);*/
+
+              }.bind(this))
+          },
+
+          spin : function(e){
+
+            if(this.run) return;
+
+            this.run = true;
+            setTimeout(function(){
+              //postmessage
+              // rewardname, rewardid, coupon
+              var r = {
+                rewardName: this.rewardName,
+                rewardId: this.reward,
+                coupon: this.coupon,
+                poke_url: location.pathname
+              }
+              this.status = 'thanks';
+              window.parent.postMessage('SPINEND||'+JSON.stringify(r), '*');
+              if(window.LUCKY_HOOKS.spinEnd && typeof window.LUCKY_HOOKS.spinEnd == 'function') (window.LUCKY_HOOKS.spinEnd.bind(this))(r)
+
+            }.bind(this), TOTAL_SPIN_TIME)
+          }
+
+        }
+
+    });
+
+
+    function polyfill(){
+    if (!Array.prototype.find) {
+      Object.defineProperty(Array.prototype, 'find', {
+        value: function(predicate) {
+         // 1. Let O be ? ToObject(this value).
+          if (this == null) {
+            throw new TypeError('"this" is null or not defined');
+          }
+
+          var o = Object(this);
+
+          // 2. Let len be ? ToLength(? Get(O, "length")).
+          var len = o.length >>> 0;
+
+          // 3. If IsCallable(predicate) is false, throw a TypeError exception.
+          if (typeof predicate !== 'function') {
+            throw new TypeError('predicate must be a function');
+          }
+
+          // 4. If thisArg was supplied, let T be thisArg; else let T be undefined.
+          var thisArg = arguments[1];
+
+          // 5. Let k be 0.
+          var k = 0;
+
+          // 6. Repeat, while k < len
+          while (k < len) {
+            // a. Let Pk be ! ToString(k).
+            // b. Let kValue be ? Get(O, Pk).
+            // c. Let testResult be ToBoolean(? Call(predicate, T, « kValue, k, O »)).
+            // d. If testResult is true, return kValue.
+            var kValue = o[k];
+            if (predicate.call(thisArg, kValue, k, o)) {
+              return kValue;
+            }
+            // e. Increase k by 1.
+            k++;
+          }
+
+          // 7. Return undefined.
+          return undefined;
+        },
+        configurable: true,
+        writable: true
+      });
+    }
+
+    }
+
+</script>
+
+<script><%- config.js %></script>
