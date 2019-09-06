@@ -26,10 +26,9 @@ const opConfig = mongoose.model('config',
   new mongoose.Schema(schemaJson)
 )
 
-if(schemaJson.operation !== opConfig.operation){
-  const d = '_d_'
-  schemaJson.operation = d
-
+const defaultInit = () => {
+  console.log('oui')
+  return schemaJson
 }
 
-export { schemaJson, opConfig }
+export { defaultInit, opConfig }

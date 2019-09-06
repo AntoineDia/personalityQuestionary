@@ -1,11 +1,13 @@
-import { opConfig, schemaJson } from '../models/opConfig.js'
+import { opConfig, defaultInit } from '../models/opConfig.js'
 
 export default {
 
   admin: async ({ query, params }, res) => {
     const { operation, hash } = params
 
-    const config = await opConfig.findOne({ operation }) || schemaJson
+    const config =
+      await opConfig.findOne({ operation }) || await defaultInit()
+
     config._id  = null
     config.game = 'wheel'
 
@@ -19,7 +21,7 @@ export default {
   template: async ({ params, query }, res) => {
     const { operation, hash } = params
 
-    const config = await opConfig.findOne({ operation }) || schemaJson
+    const config = await opConfig.findOne({ operation })
     config._id = null
     if(config.reward_ids === "Object"){
       config.reward_ids = {}
