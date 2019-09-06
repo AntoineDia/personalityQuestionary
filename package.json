@@ -1,0 +1,20 @@
+{
+  "name": "wheel",
+  "version": "1.0.0",
+  "description": "design a wheel of fortune",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon --exec babel-node app.js"
+  },
+  "author": "LuckyCycle",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "cors": "^2.8.5",
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.6.13"
+  }
+}
