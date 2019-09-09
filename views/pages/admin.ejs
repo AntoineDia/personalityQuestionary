@@ -1,8 +1,27 @@
 <% include ../components/head %>
+  <script>
+    <% include ../script/admin.js %>
+  </script>
 
-  <h1>HELLO</h1>
+  <div id="admin" class="main-panel">
 
-  <% include ../components/content/preview %>
+    <h1>Welcome on Wheel.io</h1>
 
+    <div id="load" class="option">
+
+      <h2>Load Operation :</h2>
+      <input type="text" name="operation" placeholder="operation id">
+      <button>load</button>
+
+    </div>
+
+    <div id="new" class="option">
+
+      <h2>New operation</h2>
+      <button>new</button>
+
+    </div>
+
+  </div>
 
 <% include ../components/footer %>

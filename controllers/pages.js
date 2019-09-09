@@ -1,32 +1,42 @@
-import { opConfig, defaultInit } from '../models/opConfig.js'
+import { opModel, newOp } from '../models/op.js'
 
 export default {
 
-  admin: async ({ query, params }, res) => {
+  newOp: async ({ query, params }, res) => {
     const { operation, hash } = params
-
-    const config =
-      await opConfig.findOne({ operation }) || await defaultInit()
-
-    config._id  = null
-    config.game = 'wheel'
-
-    const lgs = Object.keys(config.assets)
-
-    res.render('pages/admin', { hash, query, lgs,
+    const config = await opModel.findOne({ operation: '7921236ccc85214e56e183f03a38b454' })
+    res.render('pages/newOp',{ hash, query,
       config: JSON.stringify(config),
     })
   },
 
+  admin: async ({ query, params }, res) => {
+    const { operation, hash } = params
+
+    const config = await opModel.findOne({ operation }) || await newOp()
+
+    const langues = ['d']
+
+    res.render('pages/admin', { hash, query, langues,
+      config: JSON.stringify(config),
+    })
+  },
+
+  operation: async ({ query, params }, res) => {
+    const config = await opModel.findOne({ operation }) || await newOp()
+
+    const langues = ['d']
+
+    res.render('pages/admin', { hash, query, langues,
+      config: JSON.stringify(config),
+    })
+  },
+
+
   template: async ({ params, query }, res) => {
     const { operation, hash } = params
 
-    const config = await opConfig.findOne({ operation })
-    config._id = null
-    if(config.reward_ids === "Object"){
-      config.reward_ids = {}
-      config.reward_ids['d'] = ['0','1','2','3','4']
-    }
+    const config = await opModel.findOne({ operation }) || newOp()
 
     res.render('pages/template', { hash, query,
       config: JSON.stringify(config)
