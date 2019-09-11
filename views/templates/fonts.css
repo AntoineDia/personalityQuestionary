@@ -1,0 +1,47 @@
+@font-face {
+  font-family: 'Act';
+  src: url('https://luckycyclefiles.s3.amazonaws.com/clients/yves-rocher/fonts/actbeautiful/ActBeautiful01-Regular.eot');
+  src: url('https://luckycyclefiles.s3.amazonaws.com/clients/yves-rocher/fonts/actbeautiful/ActBeautiful01-Regular.eot?#iefix') format('embedded-opentype'),
+  url('https://luckycyclefiles.s3.amazonaws.com/clients/yves-rocher/fonts/actbeautiful/ActBeautiful01-Regular.woff2') format('woff2'),
+  url('https://luckycyclefiles.s3.amazonaws.com/clients/yves-rocher/fonts/actbeautiful/ActBeautiful01-Regular.woff') format('woff'),
+  url('https://luckycyclefiles.s3.amazonaws.com/clients/yves-rocher/fonts/actbeautiful/ActBeautiful01-Regular.ttf') format('truetype'),
+  url('https://luckycyclefiles.s3.amazonaws.com/clients/yves-rocher/fonts/actbeautiful/ActBeautiful01-Regular.svg#ActBeautiful01-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'WomensVoice';
+  src: url('https://files.luckycycle.com/clients/yves-rocher/fonts/womensvoice/YRWomensVoice-Regular.eot');
+  src: url('https://files.luckycycle.com/clients/yves-rocher/fonts/womensvoice/YRWomensVoice-Regular.eot?#iefix') format('embedded-opentype'),
+  url('https://files.luckycycle.com/clients/yves-rocher/fonts/womensvoice/YRWomensVoice-Regular.woff2') format('woff2'),
+  url('https://files.luckycycle.com/clients/yves-rocher/fonts/womensvoice/YRWomensVoice-Regular.woff') format('woff'),
+  url('https://files.luckycycle.com/clients/yves-rocher/fonts/womensvoice/YRWomensVoice-Regular.ttf') format('truetype'),
+  url('https://files.luckycycle.com/clients/yves-rocher/fonts/womensvoice/YRWomensVoice-Regular.svg#ActBeautiful01-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Martin';
+  src: url('https://luckycyclefiles.s3.amazonaws.com/clients/yves-rocher/fonts/MartinGotURWTOT-Lig.eot');
+  src: url('https://luckycyclefiles.s3.amazonaws.com/clients/yves-rocher/fonts/MartinGotURWTOT-Lig.eot?#iefix') format('embedded-opentype'),
+  url('https://luckycyclefiles.s3.amazonaws.com/clients/yves-rocher/fonts/MartinGotURWTOT-Lig.woff2') format('woff2'),
+  url('https://luckycyclefiles.s3.amazonaws.com/clients/yves-rocher/fonts/MartinGotURWTOT-Lig.woff') format('woff'),
+  url('https://luckycyclefiles.s3.amazonaws.com/clients/yves-rocher/fonts/MartinGotURWTOT-Lig.ttf') format('truetype'),
+  url('https://luckycyclefiles.s3.amazonaws.com/clients/yves-rocher/fonts/MartinGotURWTOT-Lig.svg#MartinGotURWTOT-Lig') format('svg');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MartinB';
+  src: url('https://luckycyclefiles.s3.amazonaws.com/clients/yves-rocher/fonts/MartinGotURWTOT-Bol.eot');
+  src: url('https://luckycyclefiles.s3.amazonaws.com/clients/yves-rocher/fonts/MartinGotURWTOT-Bol.eot?#iefix') format('embedded-opentype'),
+  url('https://luckycyclefiles.s3.amazonaws.com/clients/yves-rocher/fonts/MartinGotURWTOT-Bol.woff2') format('woff2'),
+  url('https://luckycyclefiles.s3.amazonaws.com/clients/yves-rocher/fonts/MartinGotURWTOT-Bol.woff') format('woff'),
+  url('https://luckycyclefiles.s3.amazonaws.com/clients/yves-rocher/fonts/MartinGotURWTOT-Bol.ttf') format('truetype'),
+  url('https://luckycyclefiles.s3.amazonaws.com/clients/yves-rocher/fonts/MartinGotURWTOT-Bol.svg#MartinGotURWTOT-Bol') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}

@@ -1,9 +1,9 @@
-import express  from 'express'
-import cors     from 'cors'
-import mongoose from 'mongoose'
+import express    from 'express'
+import cors       from 'cors'
+import mongoose   from 'mongoose'
 import bodyParser from 'body-parser'
 
-import post from './controllers/post'
+import post     from './controllers/post'
 import pages    from './controllers/pages'
 import { serv } from './config'
 
@@ -23,14 +23,12 @@ app.use(bodyParser.json())
 app.get('/', (req, res) => res.end(serv.msg))
 
 app.get('/admin/', pages.admin)
-
+app.get('/newOp', pages.newOp)
 app.get('/operation/:operation', pages.operation)
+app.get('/template/:operation?', pages.template)
+app.get('/neoTemplate/:operation', pages.neoTemplate)
 
 app.post('/getNewOp', post.getNewOp)
-
-app.get('/template/:operation?', pages.template)
-
-app.get('/newOp', pages.newOp)
 
 app.use(express.static('static'))
 

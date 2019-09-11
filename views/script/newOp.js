@@ -11,7 +11,6 @@ window.onload = () => {
   const flow_change = flows => {
     $flowParams.innerHTML = null
 
-    console.log( $formParams )
     if(!flows) return $formParams.submit()
 
     flows.forEach( flow => {
@@ -20,11 +19,13 @@ window.onload = () => {
       choice.setAttributes({ id: flow, innerText: flow })
 
       choice.addEventListener('click', () => {
+
         const input = document.createElement('input')
-        input.setAttributes({type: 'text', name: 'flow'})
-        input.value = flow
-        input.name = 'flow'
+        input.setAttributes({
+          type: 'text', name: 'flow', value: flow
+        })
         $formParams.appendChild(input)
+
         flow_change(preParams[flow])
       })
 
@@ -34,5 +35,4 @@ window.onload = () => {
   }
 
   flow_change(Object.keys(preParams))
-
 }

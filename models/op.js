@@ -1,6 +1,5 @@
 import mongoose from 'mongoose'
-
-//parameters de l'operation
+import defaultConf from './defaultConf'
 
 const schema = new mongoose.Schema({
   operation:    { type: String, index: true },
@@ -12,33 +11,24 @@ const schema = new mongoose.Schema({
   js:           String,
   form:         Object,
   assets:       Object,
-  template:     String
+  template:     Array,
 })
 
-const opModel = mongoose.model('config', schema);
+const opModel = mongoose.model('config', schema)
 
-const newOp = () => {
-  //default op
-  let df = new opModel({
-    api_key:    '',
-    form:       { fr: [] },
-    assets:     { d : {
-      background: "https://a.luckycycle.com/uploads/img/img/18706/bg.png",
-      left:       "https://a.luckycycle.com/uploads/img/img/18704/left.png",
-      logo:       "https://a.luckycycle.com/uploads/img/img/18746/logov2.png",
-      pin:        "https://a.luckycycle.com/uploads/img/img/18701/pin.png",
-      product:    "https://a.luckycycle.com/uploads/img/img/18702/prizes.png",
-      wheel:      "https://a.luckycycle.com/uploads/img/img/18705/wheel.png"
-    }},
-    langs:      { fr : ''},
-    rewards:    [],
-    reward_ids: { fr : ''},
-    css :       '',
-    js:         '',
-    template:   'template',
-    game:       ''
-  })
-  return df
+const newOp = async (flow) => {
+  defaultConf['operation'] = await operation_id_generator()
+  defaultConf['template'] = flow
+  return await new opModel(defaultConf).save()
+}
+
+const operation_id_generator = async () => {
+  let operation = ''
+  for( let i = 0; i < 32; i++ ){
+    operation += Math.floor(Math.random() * 16).toString(16)
+  }
+  if(await opModel.findOne({operation})) return await operation_id_generator()
+  return operation
 }
 
 export { opModel, newOp }

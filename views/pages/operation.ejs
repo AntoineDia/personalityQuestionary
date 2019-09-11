@@ -1,0 +1,10 @@
+<% include ../components/head %>
+  <script>
+    const config = JSON.parse(<%- JSON.stringify(config) %>)
+    <% include ../script/operation.js %>
+  </script>
+
+  <h2 style='color: black'>OPERATION CONFIG</h2>
+  <p>config in console</p>
+
+<% include ../components/footer %>
