@@ -18,6 +18,18 @@ const opModel = mongoose.model('config', schema)
 
 const newOp = async (flow) => {
   defaultConf['operation'] = await operation_id_generator()
+  if(flow[1].includes("left"))
+    defaultConf.css = `
+    #background{
+      right: 225px
+    }
+    `
+  else
+    defaultConf.css = `
+    #background{
+      left: 225px
+    }
+    `
   defaultConf['template'] = flow
   return await new opModel(defaultConf).save()
 }

@@ -28,3 +28,9 @@
   width: 225px; /*here change it*/
   height: 100%;
 }
+#logo{
+  position: absolute;
+  top: 10px; left: 230px;
+  width: 400px; height: 100px;
+  object-fit: contain;
+}
