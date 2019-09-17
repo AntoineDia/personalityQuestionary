@@ -1,0 +1,27 @@
+*{
+  padding: 0;
+  margin: 0;
+  color: var(--black);
+}
+body{
+  height: 100%;
+  font-family: sans-serif;
+  background-color: var(--green1);
+}
+.hidden{
+  display: none;
+}
+#main{
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 700px;
+  height: 600px;
+}
+.tab{
+  margin: auto;
+  text-align: center;
+}
+.question{
+  border: 1px solid var(--black);
+}

@@ -22,13 +22,7 @@ app.use(bodyParser.json())
 
 app.get('/', (req, res) => res.end(serv.msg))
 
-app.get('/admin/', pages.admin)
-app.get('/newOp', pages.newOp)
-app.get('/operation/:operation', pages.operation)
-app.get('/template/:operation?', pages.template)
-app.get('/neoTemplate/:operation', pages.neoTemplate)
-
-app.post('/getNewOp', post.getNewOp)
+app.get('/config', pages.config)
 
 app.use(express.static('static'))
 

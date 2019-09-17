@@ -1,0 +1,41 @@
+<% include ../parts/head %>
+
+  <div id="main">
+
+    <div>
+      <button onclick="goTo('first')">Main</button>
+      <button onclick="goTo('langueSelect')">Langues</button>
+      <button onclick="goTo('questions')">Questions</button>
+    </div>
+
+    <div id="first" class="tab">
+      <span>Questionary name</span>
+      <input type="text" name="name">
+    </div>
+
+    <div id="langueSelect" class="tab hidden">
+      <span>Choose langues:</span>
+      <div id="langues"></div>
+    </div>
+
+    <div id="questions" class="tab hidden">
+      <span>Questions:</span>
+      <div id="questionHolder">
+        <div class="question">
+          <span>Question:</span>
+          <input type="text" name="question">
+          <div class="response">
+            <div>Answers</div>
+            <span>Image source</span>
+            <input type="text">
+          </div>
+          <button onclick="addAnswer()">add answer</button>
+        </div>
+      </div>
+      <button onclick="addQuestion()">add question</button>
+    </div>
+
+  </div>
+
+
+<% include ../parts/footer %>

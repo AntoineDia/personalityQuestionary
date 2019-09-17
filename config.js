@@ -1,20 +1,18 @@
+// run "$ npm start" to launch app
+
 export const serv = {
-  port: 2000,
+  port: 3000,
   msg: `
-    wheel.io started on 2000
+  App started on 3000
 
+  Current links :
 
-    /admin                                                to main page
+  /main to main page
 
-    /newOp                                                to new operation
-
-    /operation/-operation_id-                             to old operation
-
-    /operation/7921236ccc85214e56e183f03a38b454           to current dev op
-
-    /template/-operation_id-                              to template
-
-    /template/7921236ccc85214e56e183f03a38b454/?lang=fr   to current dev template
+  Infos :
+  Entry point is ./app.js
+  Pages are in ./views/pages
+  Add a js file in ./static/js to have it attach to the page with the same name
   `,
   mongo: 'mongodb://luckysmart:1aDhqk2jAS0FzbBo@projectslc-shard-00-00-soavx.mongodb.net:27017,projectsls-shard-00-01-soavx.mongodb.net:27017,proectslc-shard-00-02-soavx.mongodb.net:27017/wheel_lck_io___dev?ssl=true&replicaSet=ProjectsLC-shard-0&authSource=admin'
 }
