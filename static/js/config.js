@@ -24,8 +24,6 @@ const languesInit = () => {
   }
 }
 
-languesInit()
-
 const goTo = (tabName) => {
   tabs = document.querySelectorAll(".tab")
   for (i = 0; i < tabs.length; i++) {
@@ -34,9 +32,73 @@ const goTo = (tabName) => {
   document.getElementById(tabName).className = "tab"
 }
 
-const $question = document.querySelector('.question').cloneNode(true)
+const $questionParams = document.querySelector('.questionParams').cloneNode(true)
+let questionNumber = 0
 
 const addQuestion = () => {
-  const $temp = $question.cloneNode(true)
-  document.getElementById('questionHolder').appendChild($temp)
+  questionNumber++
+
+  const $questionTemplate = $questionParams.cloneNode(true)
+
+  const $span = document.createElement('span')
+  $span.innerHTML = 'Image : '
+
+  const $imgUpload = document.createElement('img')
+  $imgUpload.src = "/img/upload.png"
+
+  const $upload = document.createElement('div')
+  $upload.id = "img-up-" + questionNumber
+  $upload.appendChild($imgUpload)
+  $upload.addEventListener('click', uploadImage)
+
+  const $src = document.createElement('div')
+  $src.innerHTML = "SRC"
+  $src.id = "img-src-" + questionNumber
+  $src.addEventListener('click', srcImage)
+
+  const $image = $questionTemplate.querySelector('.imageSelectorWrapper')
+  $image.appendChild($span)
+  $image.appendChild($upload)
+  $image.appendChild($src)
+
+  const $redirectSelector = document.createElement('input')
+  $redirectSelector.type = "text"
+  $redirectSelector.value = "Next Question"
+
+  const $redirect = $questionTemplate.querySelector('.redirectSelectorWrapper')
+  $redirect.appendChild($redirectSelector)
+
+  $questionTemplate.className = "questionParams"
+  document.getElementById('questionsHolder').appendChild($questionTemplate)
 }
+
+const uploadImage = (ev) => {
+  console.log('uploadImage',ev)
+}
+const srcImage = (ev) => {
+  console.log('srcImage',ev)
+}
+
+
+const questionInit = () => {
+  addQuestion()
+}
+
+/*
+  <label for="next0">
+    <span>Redirect to</span>
+    <input id="next0" type="text" value="Next Question">
+  </label>
+
+  <label class="upload" for="answers0">
+    <img src="/img/upload.png">
+    <input id="answers0" class="hidden-input" type="file"/>
+  </label>
+*/
+
+const init = () => {
+  languesInit()
+  questionInit()
+  goTo('questions')
+}
+init()

@@ -18,18 +18,28 @@ body{
   width: 700px;
   height: 600px;
 }
-.tab{
-  margin: auto;
-  text-align: center;
-}
-.question{
+.questionParams{
   border: 1px solid var(--black);
 }
 .upload{
   cursor: pointer;
 }
-#upload-photo {
+.hidden-input{
   opacity: 0;
   position: absolute;
   z-index: -1;
+}
+.imageSelectorWrapper, .answerWrapper{
+  display: flex;
+  flex-direction: row;
+}
+.imageSelectorWrapper > div{
+  border: 1px solid var(--black);
+}
+.imageSelectorWrapper, .redirectSelectorWrapper{
+  margin: 10px;
+}
+.answerWrapper{
+  margin: auto;
+  width: max-content;
 }

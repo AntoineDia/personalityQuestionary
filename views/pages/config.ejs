@@ -19,26 +19,31 @@
     </div>
 
     <div id="questions" class="tab hidden">
-      <span>Questions:</span>
-      <div id="questionHolder">
-        <div class="question">
-          <span>Question:</span>
-          <input type="text" name="question">
-          <div class="response">
-            <div>Answers</div>
-            <span>Image</span>
 
-            <label class="upload" for="upload-photo">
-              <img src="/img/upload.png">
-            </label>
-            <input type="file" name="photo" id="upload-photo" />
+      <div id="questionsHolder">
 
-            <input type="text" value="Next Question">
+        <div class="questionParams hidden">
+
+          <div class="question">
+            <input type="text" name="question" placeholder="Question ...">
           </div>
+
+          <div class="answers">
+            <h2>Answers</h2>
+            <div class="answerWrapper">
+              <div class="imageSelectorWrapper"></div>
+              <div class="redirectSelectorWrapper"></div>
+            </div>
+          </div>
+
           <button onclick="addAnswer()">add answer</button>
+
         </div>
+
       </div>
+
       <button onclick="addQuestion()">add question</button>
+
     </div>
 
   </div>
