@@ -26,8 +26,14 @@
           <input type="text" name="question">
           <div class="response">
             <div>Answers</div>
-            <span>Image source</span>
-            <input type="text">
+            <span>Image</span>
+
+            <label class="upload" for="upload-photo">
+              <img src="/img/upload.png">
+            </label>
+            <input type="file" name="photo" id="upload-photo" />
+
+            <input type="text" value="Next Question">
           </div>
           <button onclick="addAnswer()">add answer</button>
         </div>
