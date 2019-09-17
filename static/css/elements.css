@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
   color: var(--black);
+  outline: 0;
 }
 body{
   height: 100%;
@@ -42,4 +43,45 @@ body{
 .answerWrapper{
   margin: auto;
   width: max-content;
+}
+.question > input::placeholder{
+  color: var(--grey);
+}
+.question > input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid var(--grey);
+  margin: 10px 0px;
+  padding-left: 10px;
+  padding-bottom: 5px;
+  margin: 10px 10px;
+  width: calc(100% - 20px);
+  overflow: hidden;
+  transition-duration: .5s;
+}
+.question > input:focus {
+  border-bottom: 2px solid var(--black);
+}
+.tab{
+  /* margin-top: 20px; */
+}
+h2{
+  margin-left: 20px;
+}
+
+.question > input, h2{
+  font-size: 15px;
+}
+button{
+  color: var(--black);
+  background-color: transparent;
+  border-style: none;
+  margin: 5px;
+  padding: 10px 5px;
+  cursor: pointer;
+  font-weight: bold;
+  border-bottom: 1px solid transparent;
+}
+button:hover{
+  border-bottom: 1px solid var(--black);
 }
