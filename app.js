@@ -21,9 +21,10 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 app.get('/', (req, res) => res.end(serv.msg))
-
 app.get('/config', pages.config)
 
-app.use(express.static('static'))
+app.post('/saveQuestionary', post.saveQuestionary)
+
+app.use('/static', express.static('./static'))
 
 app.listen(serv.port, () => console.log(serv.msg))

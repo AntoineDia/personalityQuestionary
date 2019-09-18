@@ -8,11 +8,12 @@ body{
   height: 100%;
   font-family: sans-serif;
   background-color: var(--green1);
+  scroll-behavior: smooth;
 }
 .hidden{
   display: none;
 }
-#main{
+body > div{
   position: absolute;
   top: 50%; left: 50%;
   transform: translate(-50%,-50%);
@@ -21,6 +22,8 @@ body{
 }
 .questionParams{
   border: 1px solid var(--black);
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
 .upload{
   cursor: pointer;
@@ -30,27 +33,83 @@ body{
   position: absolute;
   z-index: -1;
 }
-.imageSelectorWrapper, .answerWrapper{
+.imageSelector{
   display: flex;
   flex-direction: row;
+  padding-right: 10px;
+  border-right: 1px solid var(--black)
 }
-.imageSelectorWrapper > div{
-  border: 1px solid var(--black);
+.redirectSelector{
+  padding-left: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
 }
-.imageSelectorWrapper, .redirectSelectorWrapper{
-  margin: 10px;
+.redirectSelector input{
+  padding-left: 10px;
+  cursor: pointer;
+  user-select: none;
 }
-.answerWrapper{
-  margin: auto;
+.answerWrap{
+  margin-top: 10px;
+}
+.answerWrap > div{
+  margin: 10px auto;
   width: max-content;
+  display: flex;
+  flex-wrap: wrap;
 }
-.question > input::placeholder{
+.disposition{
+  margin-left: 10px;
+}
+.disposition > input{
+  width: 50px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 5px;
+}
+.answerWrap ~ button{
+  margin-left: 15px;
+}
+.imageSelector > div{
+  border: 1px solid var(--black);
+  cursor: pointer;
+  user-select: none;
+}
+.upload{
+  width: 45px;
+  border-radius: 5px 0 0 5px;
+  text-align: center;
+  padding-top: 2px;
+}
+.src{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 45px;
+  text-align: center;
+  border-radius: 0 5px 5px 0;
+}
+.answerWrap::before{
+  content: 'Choices';
+  position: absolute;
+  left: 10px;
+}
+.answerWrap span{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-right: 5px;
+}
+.questionWrap > input::placeholder{
   color: var(--grey);
 }
-.question > input {
+.questionWrap{
+  margin-top: 5px;
+}
+.questionWrap > input {
   background-color: transparent;
   border: none;
-  border-bottom: 2px solid var(--grey);
+  border-bottom: 1px solid var(--grey);
   margin: 10px 0px;
   padding-left: 10px;
   padding-bottom: 5px;
@@ -59,17 +118,14 @@ body{
   overflow: hidden;
   transition-duration: .5s;
 }
-.question > input:focus {
-  border-bottom: 2px solid var(--black);
-}
-.tab{
-  /* margin-top: 20px; */
+.questionWrap > input:focus {
+  border-bottom: 1px solid var(--black);
 }
 h2{
   margin-left: 20px;
 }
 
-.question > input, h2{
+.questionWrap > input, h2{
   font-size: 15px;
 }
 button{
@@ -77,7 +133,7 @@ button{
   background-color: transparent;
   border-style: none;
   margin: 5px;
-  padding: 10px 5px;
+  padding: 8px 5px;
   cursor: pointer;
   font-weight: bold;
   border-bottom: 1px solid transparent;

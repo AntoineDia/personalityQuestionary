@@ -1,6 +1,27 @@
-<% include ../parts/head %>
+<!DOCTYPE html>
+  <head>
 
-  <div id="main">
+    <title>Personality Questionary</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="./static/css/colors.css">
+    <link rel="stylesheet" type="text/css" href="./static/css/elements.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+
+  </head>
+  <body>
+
+  <div id="app"></div>
+
+  </body>
+  <script type="module" src="./static/js/default.js"></script>
+  <script id="script"></script>
+</html>
+
+<!-- <div id="main">
 
     <div>
       <button onclick="goTo('first')">Main</button>
@@ -8,45 +29,27 @@
       <button onclick="goTo('questions')">Questions</button>
     </div>
 
-    <div id="first" class="tab">
-      <span>Questionary name</span>
-      <input type="text" name="name">
-    </div>
+    <form action="/saveQuestionary" method="post" enctype='application/json'>
 
-    <div id="langueSelect" class="tab hidden">
-      <span>Choose langues:</span>
-      <div id="langues"></div>
-    </div>
+      <div id="first" class="tab">
+        <span>Questionary name</span>
+        <input type="text" name="name">
+      </div>
 
-    <div id="questions" class="tab hidden">
+      <div id="langueSelect" class="tab hidden">
+        <span>Choose langues:</span>
+        <div id="langues"></div>
+      </div>
 
-      <div id="questionsHolder">
+      <div id="questions" class="tab hidden">
 
-        <div class="questionParams hidden">
-
-          <div class="question">
-            <input type="text" name="question" placeholder="Question ...">
-          </div>
-
-          <div class="answers">
-            <h2>Answers :</h2>
-            <div class="answerWrapper">
-              <div class="imageSelectorWrapper"></div>
-              <div class="redirectSelectorWrapper"></div>
-            </div>
-          </div>
-
-          <button onclick="addAnswer()">add answer</button>
-
+        <div id="questionsHolder">
         </div>
+
+        <button type="button" onclick="addQuestion()">Add question</button>
 
       </div>
 
-      <button onclick="addQuestion()">add question</button>
+      <button type="submit">Save questionary</button>
 
-    </div>
-
-  </div>
-
-
-<% include ../parts/footer %>
+    </form> -->
