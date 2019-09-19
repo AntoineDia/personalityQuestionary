@@ -1,0 +1,9 @@
+{
+  "name": "quizz-perso",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "express": "^4.17.1",
+    "vue": "^2.6.10"
+  }
+}

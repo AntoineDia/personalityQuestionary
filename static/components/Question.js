@@ -36,7 +36,8 @@ export default {
       <Answer
         :answers = "question.options"
         :idQuestion = "i"
-        @update-answer = "updateAnswer(id,answers)"
+        :questionsChoice = "questionsChoice"
+        @update-answer = "updateAnswer"
       ></Answer>
 
     </div>
@@ -53,6 +54,18 @@ export default {
   props: [
     'config'
   ],
+  computed:{
+    questionsChoice(){
+      const questions = []
+      this.config.questions.fr.forEach(q => {
+        questions.push({
+          id: q.id,
+          question: q.question
+        })
+      })
+      return questions
+    }
+  },
   components: {Answer},
   watch:{
     config: {
@@ -82,7 +95,7 @@ export default {
       this.config.questions.fr.push(newQuestion)
     },
     updateAnswer(id,answers){
-      this.config.question.fr[id] = answers
+      // this.config.question.fr[id] = answers
     }
   }
 }

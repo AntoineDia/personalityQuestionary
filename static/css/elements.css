@@ -48,6 +48,10 @@ body > div{
 .redirectInput::placeholder{
   color: var(--black);
 }
+input[type=number]{
+  background-color: var(--green2);
+  border-style: none;
+}
 .redirectInput{
   padding-left: 10px;
   cursor: pointer;
@@ -101,11 +105,6 @@ body > div{
   text-align: center;
   border-radius: 0 5px 5px 0;
 }
-.answerWrap::before{
-  content: 'Choices :';
-  position: absolute;
-  left: 20px;
-}
 .answerWrap span{
   display: flex;
   justify-content: center;
@@ -129,6 +128,7 @@ body > div{
   width: calc(100% - 20px);
   overflow: hidden;
   transition-duration: .5s;
+  border-radius: 0;
 }
 .questionWrap > input:focus {
   border-bottom: 1px solid var(--black);
@@ -152,4 +152,24 @@ button{
 }
 button:hover{
   border-bottom: 1px solid var(--black);
+}
+input{
+  border-radius: 5px;
+  border-style: none;
+}
+#save{
+  float: right;
+}
+.questionsChoice{
+  position: absolute;
+  background-color: var(--green2);
+  border: 1px solid var(--black);
+}
+.questionsChoice > div{
+  position: absolute;
+  margin: 20px auto;
+  background-color: var(--green2);
+  max-width: max-content;
+  cursor: pointer;
+  user-select: none;
 }

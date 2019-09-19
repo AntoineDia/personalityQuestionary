@@ -29,9 +29,9 @@ export default {
       :class="{'hidden' : current !== 'Questions'}"
     ></Question>
 
+    <button id="save">Save questionary</button>
+
   </div>
-
-
   `,
   components: {
     QuestionaryNav, Main, Langues, Question
