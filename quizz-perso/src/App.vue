@@ -16,6 +16,6 @@ export default {
 
 <style>
 #app {
-
+  color: #485f4d;
 }
 </style>
