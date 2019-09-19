@@ -45,10 +45,17 @@ body > div{
   justify-content: center;
   flex-direction: row;
 }
-.redirectSelector input{
+.redirectInput::placeholder{
+  color: var(--black);
+}
+.redirectInput{
   padding-left: 10px;
   cursor: pointer;
   user-select: none;
+  caret-color: transparent;
+  height: 30px;
+  background-color: var(--green2);
+  border-style: none;
 }
 .answerWrap{
   margin-top: 10px;
@@ -59,8 +66,10 @@ body > div{
   display: flex;
   flex-wrap: wrap;
 }
-.disposition{
-  margin-left: 10px;
+.disposition, .defaultNext{
+  margin-bottom: 20px;
+  margin-top: 10px;
+  text-align: center;
 }
 .disposition > input{
   width: 50px;
@@ -76,6 +85,9 @@ body > div{
   cursor: pointer;
   user-select: none;
 }
+.imageSelector > div:hover{
+  background-color: var(--green2);
+}
 .upload{
   width: 45px;
   border-radius: 5px 0 0 5px;
@@ -90,9 +102,9 @@ body > div{
   border-radius: 0 5px 5px 0;
 }
 .answerWrap::before{
-  content: 'Choices';
+  content: 'Choices :';
   position: absolute;
-  left: 10px;
+  left: 20px;
 }
 .answerWrap span{
   display: flex;

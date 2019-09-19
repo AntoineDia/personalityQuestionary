@@ -3,20 +3,19 @@ export default {
   template:`
   <div>
     <button
-      @click="tabUpdate"
+      @click="tabUpdate(tab)"
       v-for="tab in tabs"
     >{{tab}}</button>
   </div>
   `,
   data() {
     return {
-      tabs:['Main','Langues','Questions'],
+      tabs:['Main','Langues','Questions','Tags'],
     }
   },
   methods:{
-    tabUpdate(){
-      this.$emit('tab-change')
+    tabUpdate(tab){
+      this.$emit('tab-change', tab)
     }
   }
-
 }
