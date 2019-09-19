@@ -1,9 +1,16 @@
 {
   "name": "quizz-perso",
   "version": "0.1.0",
+  "main": "src/main.js",
   "private": true,
   "dependencies": {
     "express": "^4.17.1",
     "vue": "^2.6.10"
+  },
+  "scripts": {
+    "start": "nodemon app.js",
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
   }
 }
