@@ -1,0 +1,27 @@
+{
+  "name": "",
+  "langues": ["fr"],
+  "questions":{
+    "fr":[
+      {
+        "id": 0,
+        "question": "Pour moi ou pour offir?",
+        "next":  1,
+        "maxChoice": 1,
+        "col": 2,
+        "row": 1,
+        "options":[
+          {
+            "src": "src.com/img.png",
+            "tag": ["0"],
+            "next": "2"
+          },
+          {
+            "src": "src.com/img2.png",
+            "tag": ["1","2"]
+          }
+        ]
+      }
+    ]
+  }
+ }
